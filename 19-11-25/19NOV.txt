@@ -1,0 +1,142 @@
+QUES 1 :
+package nov19;
+
+public class Class1 {
+    void BMW250() {
+        System.out.println("King Car");
+    }
+
+    public static void main(String[] args) {
+
+        People1 k = new People1();
+        k.bike();
+        System.out.println(k.name_people1);
+
+        Class1 king = new Class1();
+        king.BMW250();
+    }
+}
+
+class People1 {
+    String name_people1 = "Karthik";
+
+    void car() {
+        System.out.println("People1 Car");
+    }
+
+    void bike() {
+        System.out.println("People1 Bike");
+    }
+}
+
+class People2 {
+    String name_people2 = "Mahesh";
+
+    void car() {
+        System.out.println("People2 Car");
+    }
+
+    public static void main(String[] args) {
+
+        People2 l = new People2();
+        l.car();
+        System.out.println(l.name_people2);
+
+        Class1 king = new Class1();
+        king.BMW250();
+    }
+}
+
+
+QUES 2:
+
+package nov19;
+public class Class1 {
+	public static void main(String[] args) {
+
+		Program1 program=new Program1(100);
+		
+		program.addition();
+		
+	}
+}
+class Program1{
+	int marks=95; //class variable
+	//user def methods
+	protected void addition(){
+		int result= marks*100;
+		System.out.println(result);
+		//method local inner class
+		class InsideClass{
+			void division(){
+				System.out.println("method Local inner class output");
+			}
+		}
+	}
+	//initi block
+	{
+		System.out.println("Welcome...!");
+		String date="19th Nov 2025";
+		System.out.println(date);
+	}
+	
+	//constru //def //parame
+	public Program1() {
+		System.out.println("Iam a def const..");
+	}
+	public Program1(int a){
+		a=marks+a;
+		System.out.println(a);
+	}
+	
+	
+}
+
+
+
+#INHERITANCE
+
+package nov19;
+
+public class Example {
+    public static void main(String[] args) {
+
+       
+        Dog d = new Dog();
+        d.bark();
+        d.eat();
+
+        BabyDog bd = new BabyDog();
+        bd.weep();
+        bd.bark();
+        bd.eat();
+
+        Cat c = new Cat();
+        c.meow();
+        c.eat();
+    }
+}
+
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {   
+	void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class BabyDog extends Dog {   
+    void weep() {
+        System.out.println("Weeping...");
+    }
+}
+
+class Cat extends Animal {   
+    void meow() {
+        System.out.println("Meowing...");
+    }
+}

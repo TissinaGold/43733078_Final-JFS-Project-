@@ -1,0 +1,309 @@
+#LIST 
+
+package arrays;
+import java.util.*;
+
+public class list {
+
+	public static void main(String[] args) {
+
+		ArrayList<Object> arrayList = new ArrayList<>();
+
+		arrayList.add(1);
+		arrayList.add("Java");
+		arrayList.add(20.11);
+		arrayList.add('J');
+		arrayList.add(true);
+
+		LinkedList<Object> linkedList = new LinkedList<>();
+
+		linkedList.add(2);
+		linkedList.add("FullStack");
+		linkedList.add(20.22);
+		linkedList.add('F');
+		linkedList.add(false);
+
+		System.out.println("ArrayList Elements:");
+		Iterator<Object> itr1 = arrayList.iterator();
+		while (itr1.hasNext()) {
+			System.out.println(itr1.next());
+		}
+
+		System.out.println("\nLinkedList Elements:");
+		Iterator<Object> itr2 = linkedList.iterator();
+		while (itr2.hasNext()) {
+			System.out.println(itr2.next());
+		}
+	}
+
+}
+
+ # ADD ELEMENTS 
+
+public static void main(String[] args) {
+
+    LinkedList<String> link = new LinkedList<String>();
+    link.add("AAA");
+    link.add("BBB");
+    link.add("CCC");
+    System.out.println("Initial List:");
+    System.out.println(link);
+    System.out.println();
+
+    link.add(1, "DDD");
+    System.out.println("Adding an element at the specific position:");
+    System.out.println(link);
+    System.out.println();
+
+    LinkedList<String> link2 = new LinkedList<String>();
+    link2.add("EEE");
+    link2.add("FFF");
+    System.out.println("elements of list 2:");
+    System.out.println(link2);
+    System.out.println();
+
+    link.addAll(link2);
+    System.out.println("Adding second list elements to the first list: ");
+    System.out.println(link);
+    System.out.println();
+
+    LinkedList<String> link3 = new LinkedList<String>();
+    link3.add("GGG");
+    link3.add("HHH");
+    System.out.println("elements of list 3:");
+    System.out.println(link3);
+    System.out.println();
+
+    link.addAll(1, link3);
+    System.out.println("Adding list 3 elements to list 1 at specific position: ");
+    System.out.println(link);
+    System.out.println();
+
+    link.addFirst("III");
+    System.out.println("Adding an element at the first position:");
+    System.out.println(link);
+    System.out.println();
+
+    link.addLast("JJJ");
+    System.out.println("Adding an element at the last position");
+    System.out.println(link);
+    
+    Iterator i=link.descendingIterator();  
+    while(i.hasNext())  
+    {  
+        System.out.println(i.next());  
+    }  
+
+
+}
+}
+	
+
+#REMOVE ELEMENTS 
+
+
+        public static void main(String[] args) {
+        LinkedList<String> list1 = new LinkedList<String>();  
+        
+        list1.add("AAA");  
+        list1.add("BBB");  
+        list1.add("CCC");  
+        list1.add("DDD");  
+        list1.add("EEE");  
+        list1.add("FFF");  
+        list1.add("GGG");  
+        list1.add("EEE");     // duplicate
+        list1.add("FFF");     // duplicate
+        list1.add("HHH");  
+        
+        System.out.println("Initial list of elements: ");
+        System.out.println(list1);
+        System.out.println();
+        
+        list1.remove("BBB");  
+        System.out.println("Removing specific element from list:"); 
+        System.out.println(list1);
+        System.out.println();
+   
+        list1.remove(0);  
+        System.out.println("Removing element on specific position:");  
+        System.out.println(list1);
+        System.out.println();
+        
+        LinkedList<String> list2 = new LinkedList<String>();
+        list2.add("AAA");  
+        list2.add("III");   
+        
+        list1.addAll(list2);  
+        System.out.println("Adding list 2 to list 1:");   
+        System.out.println(list1);
+        System.out.println();
+   
+        list1.removeAll(list2);  
+        System.out.println("Removing all elements in list 2:"); 
+        System.out.println(list1);
+        System.out.println();
+    
+        list1.removeFirst();  
+        System.out.println("Removing first element from the list 1:"); 
+        System.out.println(list1);
+        System.out.println();
+   
+        list1.removeLast();  
+        System.out.println("Removing last element from the list 1:");  
+        System.out.println(list1);
+        System.out.println();
+        
+        list1.removeFirstOccurrence("EEE");  
+        System.out.println("Removing first occurrence of element from the list 1:");  
+        System.out.println(list1);
+        System.out.println();
+        
+        list1.removeLastOccurrence("FFF");  
+        System.out.println("Removing last occurrence of element from the list 1:");  
+        System.out.println(list1);
+        System.out.println();
+             
+        list1.clear();  
+        System.out.println("Removing all the elements available in the list:"); 
+        System.out.println(list1);
+   }
+}
+
+
+#JDBC 
+
+
+package CRUD;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DB_CONNECT {
+	public static void main(String[] args) {
+	  DB_CONNECT obj_DB_Connection=new DB_CONNECT();
+	  System.out.println(obj_DB_Connection.get_connection());
+	}
+	public Connection get_connection(){
+	 Connection connection=null;
+	try {
+	  Class.forName("com.mysql.cj.jdbc.Driver");              
+	  connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/CRUD","root", "2005");
+	} catch (Exception e) {
+	  System.out.println(e);
+	}
+	  return connection;
+	}
+	}
+
+
+
+
+#CRUD_TEST 
+
+package CRUD;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+public class CRUD_Test {
+
+public static void main(String[] args) {
+	CRUD_Test objTest=new CRUD_Test();
+        //insert data
+	objTest.create_data(1, "jinu", "jinu@gmail.com");
+	objTest.create_data(1, "jawad", "jawad@gmail.com");
+        //read data
+	objTest.read_data("2");
+        //update data
+	objTest.update_data("2", "22", "jawad2", "jawad2@gmail");
+        //delete data
+	objTest.delete_data("1");
+}
+
+public void create_data(int sl_no,String name,String email){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	try {
+		String query="insert into user1(sl_no,name,email) values (?,?,?)";
+		ps=connection.prepareStatement(query);
+		ps.setInt(1, sl_no);
+		ps.setString(2, name);
+		ps.setString(3, email);
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+public void read_data(String sl_no){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	ResultSet rs=null;
+	try {
+		String query="select * from user1";
+		ps=connection.prepareStatement(query);
+		//ps.setString(1, sl_no);
+		System.out.println(ps);
+		rs=ps.executeQuery();
+		while(rs.next()){
+		System.out.println("Sl no -"+rs.getString("sl_no"));
+		System.out.println("name -"+rs.getString("name"));
+		System.out.println("email -"+rs.getString("email"));
+		System.out.println("---------------");
+		}
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+public void update_data(String sl_no,String new_sl_no,String name,String email){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	try {
+		String query="update user1 set sl_no=?,name=?,email=? where sl_no=?";
+		ps=connection.prepareStatement(query);
+		ps.setString(1, new_sl_no);
+		ps.setString(2, name);
+		ps.setString(3, email);
+		ps.setString(4, sl_no);
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+public void delete_data(String sl_no){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	try {
+		String query="delete from user1 where sl_no=?";
+		ps=connection.prepareStatement(query);
+		ps.setString(1, sl_no);
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+
+}
+}
+
+#MYSQL 
+
+
+CREATE TABLE user1 (
+	sl_no INT,
+	name VARCHAR(100) ,
+	email VARCHAR(100) 
+)
+;
+drop table user1;
+create database crud;
+use crud;
+show tables from crud;
+select * from user1;

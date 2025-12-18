@@ -1,0 +1,316 @@
+1) THREADING 
+
+package nov25;
+
+public class NOV25 {
+			public static void main(String args[]) {
+
+				// object creation for thread classes
+				Numeric num = new Numeric();
+				Alpha alp = new Alpha();
+
+				// start the thread
+				num.start(); 
+				try {
+					num.join();
+				} catch(InterruptedException e ){
+					System.out.println(e);
+				}
+				alp.start();
+
+				// get the name of the thread
+				System.out.println("Number Thread : " + num.getName());
+				System.out.println("Alphabets Thread : " + alp.getName());
+
+				// get the priority
+				System.out.println("Number Thread : " + num.getPriority());
+				System.out.println("Alphabets Thread : " + alp.getPriority());
+
+				// check the state of the thread
+				System.out.println("Number Thread : " + num.getState());
+				System.out.println("Alphabets Thread : " + alp.getState());
+
+				// checking the current thread
+				System.out.println(Thread.currentThread().getName());
+
+				// set the name to thread
+				num.setName("Exam");
+				alp.setName("Practice");
+
+				// check the state of the thread
+				System.out.println("Number Thread : " + num.getState());
+				System.out.println("Alphabets Thread : " + alp.getState());
+
+				// checking whether its alive or not
+
+				if (num.isAlive()) {
+				System.out.println("Exam thread is Alive");
+				} else {
+					System.out.println("Exam Thread is dead");
+				}
+
+				if (alp.isAlive()) {
+				System.out.println("Practice thread is Alive");
+				} else {
+				System.out.println("Practice thread is dead");
+				}
+
+			}
+
+		}
+
+		class Numeric extends Thread {
+			int a = 0;
+
+			public void run() {
+
+				try {
+					for (int i = 0; i <= 10; i++) {
+						a++;
+				System.out.println("Numeric Thread : " + a);
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+			}
+		}
+
+		class Alpha extends Thread {
+			char a = 'A';
+
+			public void run() {
+				try {
+					for (int i = 0; i <= 25; i++) {
+
+				System.out.println("Alpha Thread : " + a);
+						a++;
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+			}
+	}
+
+
+2)MULTI THREADING - DIGITAL CLOCK 
+
+package thread;
+
+public class Nv25 {
+			public static void main(String args[]) {
+				// object creation for thread classes
+				Minute num = new Minute();
+				Seconds alp = new Seconds();
+
+				// start the thread
+				num.start();
+				alp.start();
+			
+			}
+
+		}
+
+		class Minute extends Thread {
+			int a = 0;
+
+			public void run() {
+
+				try {
+					for (int i = 0; i <= 59; i++) {
+						try {
+						System.out.println("Minutes : " + a);
+						a++;
+						Thread.sleep(60000);
+						}
+						catch(Exception e) {
+							System.out.println(e);
+						}
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+			}
+		}
+
+		class Seconds extends Thread {
+			int a=0;
+
+			public void run() {
+				try {
+					for (int i = 0; i <= 59; i++) {
+
+						try {
+						System.out.println("Seconds :" + a);
+						a++;
+						Thread.sleep(1000);
+						}
+						catch(Exception e) {
+							System.out.println("Issues in Minutes Thread class");
+						}
+					}
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+
+			}
+		}
+
+
+3)STRINGS
+
+
+package Array;
+
+public class ques {
+			public static void main(String args[]){
+
+
+			String s1="java";
+
+
+			char ch[]={'s','t','r','i','n','g','s'};
+
+
+			String s2=new String(ch);//converting char array to string
+
+
+			String s3=new String("example");//creating java string by new keyword
+
+
+			System.out.println(s1);
+			System.out.println(s2);
+			System.out.println(s3);
+			
+                        String s="Tissina is a topper ";  
+			System.out.println(s.toUpperCase());  
+			System.out.println(s.toLowerCase()); 
+			System.out.println(s);
+			System.out.println(s.trim());
+			System.out.println(s.startsWith("Ti")); 
+			System.out.println(s.endsWith("r"));
+			System.out.println(s.charAt(0));
+			System.out.println(s.charAt(3));
+			System.out.println(s.length());
+			
+			
+                        String s1="Sachin ";  
+			String s2="Tendulkar";  
+			String s3=s1.concat(s2);  
+			System.out.println(s3);
+			
+			 System.out.println(s1==s2);
+			 System.out.println(s1.compareTo(s2));
+			 String replaceString=s1.replaceAll("S","e");
+			 System.out.println(replaceString);
+				
+				String s1="welcome to split world";  
+				System.out.println("returning words:");  
+				for(String w:s1.split("\\s",0)){  
+				System.out.println(w);  
+				}  
+				System.out.println("returning words:");  
+				for(String w:s1.split("\\s",1)){  
+				System.out.println(w);  
+				}  
+				System.out.println("returning words:");  
+				for(String w:s1.split("\\s",2)){  
+				System.out.println(w);
+				}
+				
+				StringBuffer sb=new StringBuffer("Hello ");  
+				sb.append("Java"); 
+				System.out.println(sb);
+				
+				StringBuffer sb=new StringBuffer("Hello ");  
+				sb.insert(1,"Java");//now original string is changed  
+				System.out.println(sb);
+				
+				StringBuffer sb=new StringBuffer("Hello");  
+				sb.replace(1,3,"Java");  
+				System.out.println(sb);
+				
+				StringBuffer sb=new StringBuffer("Hello");  
+				sb.delete(1,3);  
+				System.out.println(sb);
+				
+				StringBuffer sb=new StringBuffer("Hello");    
+				sb.reverse(); 
+				System.out.println(sb);
+
+
+
+
+}
+
+}
+
+
+4)ARRAYS
+
+package package2;
+import java.util.*;
+
+public class Array {
+	public static void main(String[] args) {
+		int[] Array = { 1, 2, 3, 4, 5 };
+	    System.out.println(Arrays.toString(Array));
+	    }
+	}
+
+
+
+public class Array {
+    public static void main(String[] args) {
+        String[] arr = { "abc", "def", "ghi", "klm", "nop" };
+        boolean result = Arrays.asList(arr).contains("klm");
+        System.out.println(result);
+    }
+}
+
+
+
+public class Array {
+    public static void main(String[] args) {
+        String[] arr = { "a", "b", "c", "d", "e", "a" };
+        Set<String> set = new HashSet<>(Arrays.asList(arr));
+        System.out.println(set);
+    }
+}
+
+
+
+public class Array {
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5 };
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = temp;
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+
+
+public class Array {
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5 };
+        int removeVal = 3;
+        int[] result = new int[arr.length - 1];
+        int index = 0;
+
+        for (int num : arr) {
+            if (num != removeVal) {
+                result[index++] = num;
+            }
+        }
+
+        System.out.println(Arrays.toString(result));
+    }
+}

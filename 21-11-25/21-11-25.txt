@@ -1,0 +1,167 @@
+1) OVERRIDDING & OVERWRITING 
+
+package Package;
+
+public class overwriting {
+
+    public static void main(String[] args) {
+
+        //  Overloading
+    	Calculator c = new Calculator();
+        c.add(10, 20);
+        c.add(10, 20, 30);
+
+        //  Overriding
+        Animal a = new Animal();
+        a.sound();  // Parent method
+
+        Dog d = new Dog();
+        d.sound();  // Overridden method
+
+        // Constructor
+        Student s1 = new Student();        // Default constructor
+        Student s2 = new Student("Tissina"); // Parameterized constructor
+
+        System.out.println("Student1 Name: " + s1.name);
+        System.out.println("Student2 Name: " + s2.name);
+    }
+}
+
+class Calculator {
+    // Overloading
+    void add(int a, int b) {
+        System.out.println("Sum of two numbers: " + (a + b));
+    }
+    void add(int a, int b, int c) {
+        System.out.println("Sum of three numbers: " + (a + b + c));
+    }
+}
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Student {
+    String name;
+
+    Student() {
+        name = "Unknown";
+        System.out.println("Default Constructor Unknown");
+    }
+
+    Student(String n) {
+        name = n;
+        System.out.println("Parameterized Constructor Called");
+    }
+}
+
+
+2)ENCAPSULATION 
+
+package Package2;
+
+class BankAccount {
+    
+    private double balance;
+    
+    public void deposit(double amount) {
+        balance = balance + amount;
+    }
+
+ 
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class encapsulation {   
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount(); 
+        acc.deposit(5000);
+        System.out.println(acc.getBalance()); 
+    }
+}
+
+
+
+3)ABSTRACT
+
+package Package3;
+
+abstract class Animal {
+    abstract void sound(); // abstract method
+
+    void eat() {           // normal method
+        System.out.println("Animal eats food");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Abstract {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound();  // overridden method
+        d.eat();    // normal method from abstract class
+    }
+}
+ 
+
+4) INTERFACE 
+
+package Package4;
+
+interface Vehicle {
+    void start();  // abstract method
+    void stop();   // abstract method
+}
+
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car starts");
+    }
+
+    public void stop() {
+        System.out.println("Car stops");
+    }
+}
+
+public class Interface {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.stop();
+    }
+}
+
+5) TRY CATCH 
+
+public class trycatch {
+    public static void main(String[] args) {
+
+        try {
+            System.out.println("Thanks for visiting");
+
+            int a = 10;
+            int b = 0;
+            int result = a / b;
+        }
+        catch (Exception e) {
+            e.printStackTrace();  // prints full Java exception details
+        }
+    }
+}
